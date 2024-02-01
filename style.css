@@ -70,6 +70,28 @@ p {
   display: none;
 }
 
+@keyframes slideIn {
+  from {
+    transform: translateY(-100%) translate(-50%, -50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateY(0) translate(-50%, -50%);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100%) translate(-50%, -50%);
+    opacity: 0;
+  }
+}
+
 .modal {
   position: absolute;
   top: 50%;
@@ -81,6 +103,10 @@ p {
   border-radius: 5px;
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
   z-index: 10;
+}
+
+.modal:not(.hidden) {
+  animation: slideIn 0.3s ease forwards;
 }
 
 .overlay {

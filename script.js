@@ -10,8 +10,15 @@ function openModal(modal, btnCloseModal) {
 }
 
 function closeModal(modal) {
-  modal.classList.add('hidden');
-  overlay.classList.add('hidden');
+  // Start of the close animation
+  modal.style.animation = 'slideOut 0.3s forwards';
+
+  // Wait for the animation to finish, then hide the modal
+  setTimeout(() => {
+    modal.style.animation = '';
+    modal.classList.add('hidden');
+    overlay.classList.add('hidden');
+  }, 300); // Sync time with the animation duration
 }
 
 btnsShowModal.forEach(btn => {
